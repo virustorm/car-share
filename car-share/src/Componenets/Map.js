@@ -12,7 +12,8 @@ export default class Map extends React.Component {
 			)
 			.then((result) => {
 				this.setState({
-					modoLocation: result.data.Response.Locations
+					modoLocation: result.data.Response.Locations,
+					loading: false
 				});
 			});
 		this.setState({
@@ -24,10 +25,14 @@ export default class Map extends React.Component {
 	state = {
 		center: { lat: 0, lng: 0 },
 		zoom: 0,
-		modoLocation: []
+		modoLocation: [],
+		loading: true
 	};
 
 	render() {
+		if (this.state.loading === true) {
+			return <div>Loading...</div>;
+		}
 		return (
 			<div className="map">
 				<ModoMap data={this.state} />

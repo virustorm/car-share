@@ -25,6 +25,10 @@
   width: 30px;
 }
 
+.modoPart-pic {
+  height: 400px;
+}
+
 html,
 body {
   margin: 0;
