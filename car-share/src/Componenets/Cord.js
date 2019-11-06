@@ -20,5 +20,5 @@ export default geolocated({
 	positionOptions: {
 		enableHighAccuracy: false
 	},
-	userDecisionTimeout: 2000
+	userDecisionTimeout: 5000
 })(Demo);
