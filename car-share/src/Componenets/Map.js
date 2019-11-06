@@ -6,31 +6,31 @@ import Modo from '../assets/images/modo.png';
 import axios from 'axios';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const apiKey = 'AIzaSyC_f-DBHL8cc-MhQSPAYMdGRWkInlwY7GQ';
 
 export default class Map extends React.Component {
 	componentDidMount() {
-		console.log(this.props.data.coords.longitude);
-		console.log(this.props.data.coords.latitude);
-		this.setState({
-			center: { lat: this.props.data.coords.latitude, lng: this.props.data.coords.longitude },
-			zoom: 16
-		});
 		axios
 			.get(
-				`https://bookit.modo.coop/api/v2/nearby?lat=${this.props.data.coords.latitude}&long=${this.props.data
-					.coords.longitude}`
+				`https://bookit.modo.coop/api/v2/nearby?lat=${this.props.data.coords.latitude &&
+					this.props.data.coords.latitude}&long=${this.props.data.coords.longitude &&
+					this.props.data.coords.longitude}`
 			)
 			.then((result) => {
 				this.setState({
 					modoLocation: result.data.Response.Locations
 				});
+				console.log(this.state);
 			});
+		this.setState({
+			center: { lat: this.props.data.coords.latitude, lng: this.props.data.coords.longitude },
+			zoom: 16
+		});
 	}
 
 	state = {
 		center: { lat: 0, lng: 0 },
 		zoom: 0,
-		apiKey: 'AIzaSyC_f-DBHL8cc-MhQSPAYMdGRWkInlwY7GQ',
 		modoLocation: []
 	};
 
@@ -39,7 +39,7 @@ export default class Map extends React.Component {
 			<div className="mapDiv">
 				<div className="map">
 					<GoogleMapReact
-						bootstrapURLKeys={{ key: 'AIzaSyC_f-DBHL8cc-MhQSPAYMdGRWkInlwY7GQ' }}
+						bootstrapURLKeys={{ key: apiKey }}
 						defaultCenter={this.state.center}
 						defaultZoom={this.state.zoom}
 					>
@@ -50,8 +50,8 @@ export default class Map extends React.Component {
 						/>
 
 						<AnyReactComponent
-							lat={49.2842777141411}
-							lng={-123.113564543511}
+							lat={this.state.modoLocation[0].Latitude}
+							lng={this.state.modoLocation[0].Longitude}
 							text={<img className="modo" src={Modo} />}
 						/>
 					</GoogleMapReact>
