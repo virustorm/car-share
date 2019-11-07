@@ -8,7 +8,7 @@ export default class Map extends React.Component {
 		axios
 			.get(
 				`https://bookit.modo.coop/api/v2/nearby?lat=${this.props.data.coords.latitude}&long=${this.props.data
-					.coords.longitude}`
+					.coords.longitude}&distance=2000`
 			)
 			.then((result) => {
 				this.setState({
