@@ -1,0 +1,107 @@
+.modoCar {
+	padding-top: 20px;
+	// background-image: url('../assets/images/night.jpg');
+	height: 100vh;
+	background-size: cover;
+	// background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	// color: white;
+	&-title {
+		text-align: center;
+		margin-bottom: 20px;
+		font-size: 25px;
+		font-weight: 900;
+	}
+}
+
+.modoPart {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	&-pic {
+		height: 200px;
+		width: 95%;
+	}
+	&-des {
+		margin: 20px 0 40px 0;
+		font-size: 20px;
+	}
+	&-wholeInfo {
+		width: 100%;
+		padding: 0 3%;
+	}
+	&-text {
+		font-size: 15px;
+	}
+	&-accBox {
+		padding: 0 5%;
+	}
+}
+
+@include tablet {
+	.modoPart {
+		&-pic {
+			width: 60%;
+			height: 300px;
+		}
+		&-des {
+			font-size: 30px;
+			margin: 30px 0 20px 0;
+		}
+		&-wholeInfo {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		&__info {
+			width: 70%;
+			&-color {
+				font-weight: 400;
+			}
+			&-seats {
+				font-weight: 400;
+			}
+		}
+		&__colorSeat {
+			display: flex;
+			justify-content: space-around;
+		}
+		&-accBox {
+			display: flex;
+			flex-flow: wrap;
+			justify-content: space-around;
+			margin-top: 20px;
+		}
+		&-acc {
+			width: 90%;
+			font-weight: 300;
+		}
+		&-text {
+			width: 30%;
+			margin: 10px;
+			font-weight: 200;
+		}
+	}
+	.modoCar {
+		&-title {
+			font-size: 40px;
+		}
+	}
+}
+
+@include desktop {
+	.modoPart {
+		flex-direction: row;
+		align-items: flex-start;
+		margin-top: 50px;
+
+		&-pic {
+			width: 50%;
+			height: 500px;
+		}
+		&-des {
+			margin-left: 30px;
+		}
+	}
+}

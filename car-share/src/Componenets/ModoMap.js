@@ -25,6 +25,7 @@ export default class ModoMap extends Component {
 								<img
 									className="modo"
 									onClick={() => {
+										console.log('----------------------------');
 										console.log('clicked');
 										console.log(data.LocationID);
 									}}
