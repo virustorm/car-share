@@ -7,6 +7,13 @@
 		font-size: 25px;
 		font-weight: 900;
 	}
+	&__title {
+		&-modo {
+			height: 50px;
+			width: 50px;
+			margin: 0 10px 10px 0;
+		}
+	}
 }
 
 .modoPart {
@@ -130,6 +137,13 @@
 		&-title {
 			margin: 30px 0;
 			font-size: 60px;
+		}
+		&__title {
+			&-modo {
+				height: 100px;
+				width: 100px;
+				margin: 0 30px 10px 0;
+			}
 		}
 	}
 }

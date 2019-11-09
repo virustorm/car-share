@@ -11,6 +11,41 @@
 	margin-top: 50px;
 	height: 400px;
 	width: 85%;
+	position: relative;
+	&-searchBox {
+		position: absolute;
+		top: 40px;
+		left: 40px;
+		z-index: 5;
+		width: 100%;
+	}
+	&-search {
+		width: 20%;
+		height: 50px;
+		border-radius: 10px;
+		border: 1px solid #7f8c8d;
+		padding-left: 1%;
+		&:focus {
+			outline: none;
+			border: 1px solid #2d3436;
+			border-radius: 10px;
+		}
+	}
+	&-submit {
+		width: 10%;
+		height: 45px;
+		font-size: 20px;
+		background-color: #7f8c8d;
+		color: white;
+		margin-left: 15px;
+		border-radius: 10px;
+		border: 1px solid #7f8c8d;
+		transition: 0.1s ease-in-out all;
+		&:hover {
+			cursor: pointer;
+			background-color: #2d3436;
+		}
+	}
 }
 
 .circle {

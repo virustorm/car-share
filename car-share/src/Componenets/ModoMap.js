@@ -44,7 +44,6 @@ export default class ModoMap extends Component {
 	};
 
 	render() {
-		// console.log(this.props);
 		return (
 			<GoogleMapReact
 				bootstrapURLKeys={{ key: apiKey }}
@@ -80,16 +79,7 @@ export default class ModoMap extends Component {
 					lng={-123.120212}
 					text={
 						<Link className="zipMap" to={`/zip/test`}>
-							<img
-								className="zip"
-								// onClick={() => {
-								// 	console.log('----------------------------');
-								// 	console.log('clicked');
-								// 	console.log(data.LocationID);
-								// }}
-								src={Zip}
-								alt="ZipCar"
-							/>
+							<img className="zip" src={Zip} alt="ZipCar" />
 						</Link>
 					}
 				/>

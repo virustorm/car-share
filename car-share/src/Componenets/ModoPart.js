@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Modo from '../assets/images/modo.png';
 
 import HondaFitWhite from '../assets/images/2017HondaFitWhite.png';
 import HondaFitGrey from '../assets/images/HondaFitGrey.png';
@@ -253,7 +254,10 @@ export default class ModoPart extends Component {
 		if (this.state.loading) return <div className="loading">Loading...</div>;
 		return (
 			<div className="modoCar">
-				<h1 className="modoCar-title">{shortDes}</h1>
+				<h1 className="modoCar-title">
+					<img className="modoCar__title-modo" src={Modo} alt="modo" />
+					{shortDes}
+				</h1>
 				{this.locationCar()}
 			</div>
 		);
