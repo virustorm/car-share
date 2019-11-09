@@ -16,6 +16,18 @@ export default class Map extends React.Component {
 					loading: false
 				});
 			});
+		// axios
+		// 	.get(
+		// 		`https://api.translink.ca/rttiapi/v1/stops?apikey=UMNOPM79se8XWKDIVSPF&lat=${this.props.data.coords
+		// 			.latitude}&long=${this.props.data.coords.longitude}&radius=500`
+		// 	)
+		// 	.then((res) => {
+		// 		console.log(res);
+		// 		this.setState({
+		// 			busLocation: res.data,
+		// 			loading: false
+		// 		});
+		// 	});
 		this.setState({
 			center: { lat: this.props.data.coords.latitude, lng: this.props.data.coords.longitude },
 			zoom: 16
@@ -26,12 +38,13 @@ export default class Map extends React.Component {
 		center: { lat: 0, lng: 0 },
 		zoom: 0,
 		modoLocation: [],
-		loading: true
+		loading: true,
+		busLocation: []
 	};
 
 	render() {
 		if (this.state.loading === true) {
-			return <div>Loading...</div>;
+			return <div className="loading">Loading...</div>;
 		}
 		return (
 			<div className="map">

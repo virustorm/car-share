@@ -23,6 +23,7 @@ import ToyotaPriusSilver from '../assets/images/ToyotaPriusSilver.jpg';
 import ToyotaPriusCWhite from '../assets/images/ToyotaPriusCWhite.jpeg';
 import ToyotaPriusCGreen from '../assets/images/ToyotaPriusCGreen.jpg';
 import ToyotaPriusWhite from '../assets/images/ToyotaPriusWhite.jpg';
+import ToyotaSiennaWhite from '../assets/images/ToyotaSiennaWhite.png';
 
 import MitsubishiOutlander from '../assets/images/MitsubishiOutlander.jpg';
 
@@ -50,6 +51,8 @@ import Fiat500Grey from '../assets/images/Fiat500Grey.png';
 import DodgeGrandCaravanRed from '../assets/images/DodgeGrandCaravanRed.png';
 
 import BMWX1White from '../assets/images/BMWX1White.jpg';
+
+let shortDes = '';
 
 export default class ModoPart extends Component {
 	componentDidMount() {
@@ -101,6 +104,9 @@ export default class ModoPart extends Component {
 					}
 					if (data.Model === 'RAV4 Hybrid' && data.Colour === 'Red') {
 						data.pic = `${ToyotaRav4Red}`;
+					}
+					if (data.Model === 'Sienna' && data.Colour === 'White') {
+						data.pic = `${ToyotaSiennaWhite}`;
 					}
 					if (data.Model === 'Fit' && data.Colour === 'Red') {
 						data.pic = `${HondaFitRed}`;
@@ -180,8 +186,16 @@ export default class ModoPart extends Component {
 					if (data.Model === 'X1' && data.Colour === 'White') {
 						data.pic = `${BMWX1White}`;
 					}
-
-					this.setState({ loading: false, carMatch: [ ...this.state.carMatch, data ] });
+					axios
+						.get(
+							`https://bookit.modo.coop/api/v2/location_list?location_id=${this.props.match.params
+								.LocationID}`
+						)
+						.then((res) => {
+							var placeHold = Object.values(res.data.Response.Locations);
+							shortDes = placeHold[0].ShortDescription;
+							this.setState({ loading: false, carMatch: [ ...this.state.carMatch, data ] });
+						});
 				}
 			});
 		});
@@ -236,10 +250,10 @@ export default class ModoPart extends Component {
 	render() {
 		// console.log(this.props);
 		// console.log(this.locationCar());
-		if (this.state.loading) return <div>Loading...</div>;
+		if (this.state.loading) return <div className="loading">Loading...</div>;
 		return (
 			<div className="modoCar">
-				<h1 className="modoCar-title">Cars at this Location</h1>
+				<h1 className="modoCar-title">{shortDes}</h1>
 				{this.locationCar()}
 			</div>
 		);

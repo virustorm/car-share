@@ -5,13 +5,13 @@ import Map from '../Componenets/Map';
 class Demo extends React.Component {
 	render() {
 		return !this.props.isGeolocationAvailable ? (
-			<div>Your browser does not support Geolocation</div>
+			<div className="loading">Your browser does not support Geolocation</div>
 		) : !this.props.isGeolocationEnabled ? (
-			<div>Geolocation is not enabled</div>
+			<div className="loading">Geolocation is not enabled</div>
 		) : this.props.coords ? (
 			<Map data={this.props} />
 		) : (
-			<div>Getting the location data&hellip;</div>
+			<div className="loading">Getting the location data&hellip;</div>
 		);
 	}
 }

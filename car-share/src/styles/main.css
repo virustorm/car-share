@@ -30,7 +30,7 @@
 }
 
 .header__home h4 {
-  margin: 0 0 0 5px;
+  margin: 0;
   padding-top: 7px;
 }
 
@@ -41,9 +41,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   height: 100vh;
   background-image: url("../assets/images/background.jpg");
   background-size: cover;
@@ -51,8 +48,9 @@
 }
 
 .map {
+  margin-top: 50px;
   height: 400px;
-  width: 80%;
+  width: 85%;
 }
 
 .circle {
@@ -64,12 +62,31 @@
   width: 30px;
 }
 
+.loading {
+  font-size: 50px;
+}
+
+.zip {
+  height: 30px;
+  width: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+  .map {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .map {
+    margin-top: 80px;
+    height: 80%;
+  }
+}
+
 .modoCar {
   padding-top: 20px;
   height: 100vh;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
 }
 
 .modoCar-title {
@@ -90,6 +107,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid silver;
 }
 
 .modoPart-pic {
@@ -109,6 +128,7 @@
 
 .modoPart-text {
   font-size: 15px;
+  text-transform: capitalize;
 }
 
 .modoPart-accBox {
@@ -185,14 +205,43 @@
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    margin-top: 50px;
+    border-top: 1px solid silver;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .modoPart-pic {
     width: 50%;
     height: 500px;
+    padding-left: 5%;
   }
   .modoPart-des {
     margin-left: 30px;
+    font-size: 50px;
+  }
+  .modoPart__info-color {
+    font-size: 35px;
+    font-weight: 500;
+  }
+  .modoPart__info-seats {
+    font-size: 35px;
+    font-weight: 500;
+  }
+  .modoPart-acc {
+    font-size: 30px;
+    font-weight: 400;
+  }
+  .modoPart-text {
+    font-size: 25px;
+    font-weight: 300;
+  }
+  .modoPart-wholeInfo {
+    padding: 0;
+    width: 50%;
+  }
+  .modoCar-title {
+    margin: 30px 0;
+    font-size: 60px;
   }
 }
 

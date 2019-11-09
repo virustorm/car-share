@@ -1,7 +1,6 @@
 .mapDiv {
 	display: flex;
 	justify-content: center;
-	align-items: center;
 	height: 100vh;
 	background-image: url('../assets/images/background.jpg');
 	background-size: cover;
@@ -9,8 +8,9 @@
 }
 
 .map {
+	margin-top: 50px;
 	height: 400px;
-	width: 80%;
+	width: 85%;
 }
 
 .circle {
@@ -19,4 +19,25 @@
 .modo {
 	height: 30px;
 	width: 30px;
+}
+.loading {
+	font-size: 50px;
+}
+
+.zip {
+	height: 30px;
+	width: 30px;
+}
+
+@include tablet {
+	.map {
+		width: 90%;
+	}
+}
+
+@include desktop {
+	.map {
+		margin-top: 80px;
+		height: 80%;
+	}
 }
