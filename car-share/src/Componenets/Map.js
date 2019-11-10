@@ -3,7 +3,7 @@ import axios from 'axios';
 import ModoMap from '../Componenets/ModoMap';
 
 import PlacesAutocomplete from 'react-places-autocomplete';
-import { geocodeByAddress, geocodeByPlaceId, getLatLng } from 'react-places-autocomplete';
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Map extends React.Component {
 	constructor(props) {
@@ -58,10 +58,27 @@ export default class Map extends React.Component {
 	};
 
 	handleSelect = (address) => {
-		geocodeByAddress(address)
-			.then((results) => getLatLng(results[0]))
-			.then((latLng) => console.log('Success', latLng))
-			.catch((error) => console.error('Error', error));
+		console.log(address);
+		axios
+			.get(
+				`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyC_f-DBHL8cc-MhQSPAYMdGRWkInlwY7GQ`
+			)
+			.then((res) => {
+				console.log(res.data.results[0].geometry.location);
+
+				var newCenter = res.data.results[0].geometry.location;
+				this.setState({
+					center: newCenter
+				});
+				console.log(this.state.center);
+			});
+		// geocodeByAddress(address)
+		// 	.then((results) => {
+		// 		getLatLng(results[0]);
+		// 		console.log(getLatLng(results[0]));
+		// 	})
+		// 	.then((latLng) => console.log('Success', latLng))
+		// 	.catch((error) => console.error('Error', error));
 	};
 	// handleChange(event) {
 	// 	this.setState({ value: event.target.value });
