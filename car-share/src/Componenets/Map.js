@@ -17,8 +17,6 @@ export default class Map extends React.Component {
 			value: '',
 			address: ''
 		};
-		// this.handleChange = this.handleChange.bind(this);
-		// this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	//past in props of current loaction from Cord componenet
@@ -34,18 +32,6 @@ export default class Map extends React.Component {
 					loading: false
 				});
 			});
-		// axios
-		// 	.get(
-		// 		`https://api.translink.ca/rttiapi/v1/stops?apikey=UMNOPM79se8XWKDIVSPF&lat=${this.props.data.coords
-		// 			.latitude}&long=${this.props.data.coords.longitude}&radius=500`
-		// 	)
-		// 	.then((res) => {
-		// 		console.log(res);
-		// 		this.setState({
-		// 			busLocation: res.data,
-		// 			loading: false
-		// 		});
-		// 	});
 
 		this.setState({
 			center: { lat: this.props.data.coords.latitude, lng: this.props.data.coords.longitude },
@@ -72,22 +58,7 @@ export default class Map extends React.Component {
 				});
 				console.log(this.state.center);
 			});
-		// geocodeByAddress(address)
-		// 	.then((results) => {
-		// 		getLatLng(results[0]);
-		// 		console.log(getLatLng(results[0]));
-		// 	})
-		// 	.then((latLng) => console.log('Success', latLng))
-		// 	.catch((error) => console.error('Error', error));
 	};
-	// handleChange(event) {
-	// 	this.setState({ value: event.target.value });
-	// }
-
-	// handleSubmit(event) {
-	// 	console.log(this.state.value);
-	// 	event.preventDefault();
-	// }
 
 	render() {
 		if (this.state.loading === true) {
@@ -95,16 +66,6 @@ export default class Map extends React.Component {
 		}
 		return (
 			<div className="map">
-				{/* <form className="map-searchBox" onSubmit={this.handleSubmit}>
-					<input
-						className="map-search"
-						id="test"
-						type="text"
-						value={this.state.value}
-						onChange={this.handleChange}
-					/>
-					<input className="map-submit" type="submit" />
-				</form> */}
 				<PlacesAutocomplete
 					value={this.state.address}
 					onChange={this.handleChange}

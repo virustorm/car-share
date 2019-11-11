@@ -43,11 +43,18 @@ export default class ModoMap extends Component {
 		);
 	};
 
+	componentDidUpdate(prevProps) {
+		if (this.props.data.center !== prevProps.data.center) {
+			this.props.data.center = prevProps.data.center;
+		}
+	}
+
 	render() {
 		return (
 			<GoogleMapReact
 				bootstrapURLKeys={{ key: apiKey }}
 				defaultCenter={this.props.data.center}
+				center={this.props.data.center}
 				defaultZoom={this.props.data.zoom}
 			>
 				<AnyReactComponent
