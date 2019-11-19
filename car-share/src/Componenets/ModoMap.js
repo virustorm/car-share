@@ -1,5 +1,6 @@
 // import React from 'react';
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import GoogleMapReact from 'google-map-react';
 import Modo from '../assets/images/modo.png';
@@ -14,10 +15,19 @@ const apiKey = 'AIzaSyC_f-DBHL8cc-MhQSPAYMdGRWkInlwY7GQ';
 const ZipReactComponent = ({ text }) => <div>{text}</div>;
 
 export default class ModoMap extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			modoLoc: this.props.data.modoLocation,
+			loading: true,
+			newCenter: {}
+		};
+	}
+
 	modoMap = () => {
 		return (
-			this.props.data.modoLocation &&
-			this.props.data.modoLocation.map((data, index) => {
+			this.state.modoLoc &&
+			this.state.modoLoc.map((data, index) => {
 				return (
 					<AnyReactComponent
 						key={index}
@@ -45,7 +55,18 @@ export default class ModoMap extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.data.center !== prevProps.data.center) {
-			this.props.data.center = prevProps.data.center;
+			axios
+				.get(
+					`https://bookit.modo.coop/api/v2/nearby?lat=${this.props.data.center.lat}&long=${this.props.data
+						.center.lng}&distance=2000`
+				)
+				.then((result) => {
+					this.setState({
+						modoLoc: result.data.Response.Locations,
+						newCenter: prevProps.data.center
+					});
+					this.modoMap();
+				});
 		}
 	}
 

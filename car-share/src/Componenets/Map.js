@@ -3,7 +3,7 @@ import axios from 'axios';
 import ModoMap from '../Componenets/ModoMap';
 
 import PlacesAutocomplete from 'react-places-autocomplete';
-import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+// import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Map extends React.Component {
 	constructor(props) {
@@ -44,7 +44,6 @@ export default class Map extends React.Component {
 	};
 
 	handleSelect = (address) => {
-		console.log(address);
 		axios
 			.get(
 				`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyC_f-DBHL8cc-MhQSPAYMdGRWkInlwY7GQ`
@@ -56,7 +55,6 @@ export default class Map extends React.Component {
 				this.setState({
 					center: newCenter
 				});
-				console.log(this.state.center);
 			});
 	};
 
@@ -72,14 +70,14 @@ export default class Map extends React.Component {
 					onSelect={this.handleSelect}
 				>
 					{({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-						<div>
+						<div className="searchBox">
 							<input
 								{...getInputProps({
 									placeholder: 'Search Places ...',
-									className: 'location-search-input'
+									className: 'location-search-input searchBox-input'
 								})}
 							/>
-							<div className="autocomplete-dropdown-container">
+							<div className="autocomplete-dropdown-container searchBox-drop">
 								{loading && <div>Loading...</div>}
 								{suggestions.map((suggestion) => {
 									const className = suggestion.active ? 'suggestion-item--active' : 'suggestion-item';
