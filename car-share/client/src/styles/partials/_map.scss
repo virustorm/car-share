@@ -64,9 +64,30 @@
 	width: 30px;
 }
 
+.searchBox {
+	position: absolute;
+	z-index: 10;
+	top: 5px;
+	left: 5px;
+	&-input {
+		height: 40px;
+		padding-left: 10px;
+		border-radius: 10px;
+		border: 1px solid white;
+	}
+
+	&-drop {
+		width: 100%;
+	}
+}
+
 @include tablet {
 	.map {
 		width: 90%;
+	}
+	.searchBox {
+		top: 10px;
+		left: 10px;
 	}
 }
 
@@ -74,5 +95,24 @@
 	.map {
 		margin-top: 80px;
 		height: 80%;
+	}
+	.searchBox {
+		top: 20px;
+		left: 20px;
+		width: 100%;
+		&-input {
+			height: 40px;
+			width: 30%;
+			padding-left: 10px;
+			border-radius: 10px;
+			&:focus {
+				outline: none;
+				border: 2px solid silver;
+			}
+		}
+
+		&-drop {
+			width: 60%;
+		}
 	}
 }
