@@ -7,6 +7,14 @@ router.get('/', (req, res) => {
 		res.json(cars);
 	});
 });
+router.get('/:id', (req, res) => {
+	zipCar.find({}, (err, cars) => {
+		const found = cars.some((cars) => cars._id == req.params.id);
+		if (found) {
+			res.json(cars.filter((cars) => cars._id == req.params.id));
+		}
+	});
+});
 
 router.post('/', (req, res) => {
 	const car = new zipCar({

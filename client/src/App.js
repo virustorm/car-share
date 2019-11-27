@@ -8,6 +8,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './Componenets/Header';
 import MainBody from './Componenets/MainBody';
 import ModoPart from './Componenets/ModoPart';
+import ZipPart from './Componenets/ZipPart';
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 			<Switch>
 				<Route path="/" exact component={MainBody} />
 				<Route path="/modo/:LocationID" component={ModoPart} />
+				<Route path="/zip/:ObjectID" render={(props) => <ZipPart {...props} />} />
 			</Switch>
 		</div>
 	);
