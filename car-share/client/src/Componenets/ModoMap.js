@@ -4,14 +4,13 @@ import axios from 'axios';
 
 import GoogleMapReact from 'google-map-react';
 import Modo from '../assets/images/modo.png';
-import Zip from '../assets/icons/zip.jpeg';
+import zip from '../assets/icons/zip.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const apiKey = 'AIzaSyC_f-DBHL8cc-MhQSPAYMdGRWkInlwY7GQ';
-// const BusReactComponent = ({ text }) => <div>{text}</div>;
 const ZipReactComponent = ({ text }) => <div>{text}</div>;
 
 export default class ModoMap extends Component {
@@ -23,6 +22,34 @@ export default class ModoMap extends Component {
 			newCenter: {}
 		};
 	}
+
+	componentDidMount() {
+		axios.get('http://localhost:5000/cars').then((res) => {
+			this.setState({
+				zipLoc: res.data
+			});
+		});
+	}
+
+	zipMap = () => {
+		return (
+			this.props.data.zipLoc &&
+			this.props.data.zipLoc.map((data, index) => {
+				return (
+					<ZipReactComponent
+						key={index}
+						lat={data.lat}
+						lng={data.lng}
+						text={
+							<Link className="zipMap" to={`/zip/${data._id}`}>
+								<img className="zip" src={zip} alt="ZipCar" />
+							</Link>
+						}
+					/>
+				);
+			})
+		);
+	};
 
 	modoMap = () => {
 		return (
@@ -84,35 +111,8 @@ export default class ModoMap extends Component {
 					text={<FontAwesomeIcon className="circle" icon={faCircle} />}
 				/>
 
-				<ZipReactComponent
-					lat={49.28509}
-					lng={-123.111461}
-					text={
-						<Link className="zipMap" to={`/zip/test`}>
-							<img
-								className="zip"
-								// onClick={() => {
-								// 	console.log('----------------------------');
-								// 	console.log('clicked');
-								// 	console.log(data.LocationID);
-								// }}
-								src={Zip}
-								alt="ZipCar"
-							/>
-						</Link>
-					}
-				/>
-				<ZipReactComponent
-					lat={49.286725}
-					lng={-123.120212}
-					text={
-						<Link className="zipMap" to={`/zip/test`}>
-							<img className="zip" src={Zip} alt="ZipCar" />
-						</Link>
-					}
-				/>
-
 				{this.modoMap()}
+				{this.zipMap()}
 			</GoogleMapReact>
 		);
 	}

@@ -15,7 +15,8 @@ export default class Map extends React.Component {
 			loading: true,
 			busLocation: [],
 			value: '',
-			address: ''
+			address: '',
+			zipLoc: []
 		};
 	}
 
@@ -32,6 +33,11 @@ export default class Map extends React.Component {
 					loading: false
 				});
 			});
+		axios.get('http://localhost:5000/cars').then((res) => {
+			this.setState({
+				zipLoc: res.data
+			});
+		});
 
 		this.setState({
 			center: { lat: this.props.data.coords.latitude, lng: this.props.data.coords.longitude },

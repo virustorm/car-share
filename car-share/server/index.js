@@ -1,22 +1,27 @@
 const express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-const app = express();
 const mongoose = require('mongoose');
+const info = require('./information/password');
 
-app.use(express.static('public'));
+const app = express();
+app.use(express.json());
+
+mongoose
+	.connect(`mongodb://localhost:27017/carShareDB`, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
+	.catch((error) => console.log(error));
+
+app.use(cors());
 
 app.get('/', function(req, res) {
-	res.send('hi');
+	res.json('hi');
 });
-app.use(cors());
-app.use(bodyParser.json());
+
+app.use('/cars', require('./routes/zipCar'));
 
 app.listen(5000, function() {
 	console.log('boop');
-});
-
-mongoose.connect('mongodb+srv://virustorm:virustorm0718@aerocar-avw6q.mongodb.net/test?retryWrites=true&w=majority', {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
 });
