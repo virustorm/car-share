@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 const mongoose = require('mongoose');
 const info = require('./information/password');
+var path = require('path');
 
 const app = express();
 app.use(express.json());
