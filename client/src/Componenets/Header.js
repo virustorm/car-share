@@ -10,6 +10,9 @@ export default function Header() {
 				<img className="header__logo" src={Logo} alt="mug" />
 				<h4>eroCar</h4>
 			</Link>
+			<Link className="header__goHome" to="/">
+				Home
+			</Link>
 		</nav>
 	);
 }

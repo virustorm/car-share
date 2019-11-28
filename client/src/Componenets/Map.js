@@ -16,7 +16,9 @@ export default class Map extends React.Component {
 			busLocation: [],
 			value: '',
 			address: '',
-			zipLoc: []
+			zipLoc: [],
+			mode: '',
+			prevMode: ''
 		};
 	}
 
@@ -38,10 +40,12 @@ export default class Map extends React.Component {
 				zipLoc: res.data
 			});
 		});
-
+		console.log(this.props.data);
 		this.setState({
 			center: { lat: this.props.data.coords.latitude, lng: this.props.data.coords.longitude },
-			zoom: 16
+			zoom: 16,
+			mode: this.props.data.data.mode,
+			prevMode: this.props.data.data.prevMode
 		});
 	}
 

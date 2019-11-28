@@ -24,4 +24,10 @@
 			padding-top: 7px;
 		}
 	}
+	&__goHome {
+		color: white;
+		&:hover {
+			cursor: pointer;
+		}
+	}
 }

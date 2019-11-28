@@ -34,21 +34,33 @@
   padding-top: 7px;
 }
 
+.header__goHome {
+  color: white;
+}
+
+.header__goHome:hover {
+  cursor: pointer;
+}
+
 .mapDiv {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100vh;
   background-image: url("../assets/images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .map {
-  margin-top: 50px;
+  margin-top: 10px;
   height: 400px;
   width: 85%;
   position: relative;
@@ -142,7 +154,7 @@
 
 @media only screen and (min-width: 1440px) {
   .map {
-    margin-top: 80px;
+    margin-top: 20px;
     height: 80%;
   }
   .searchBox {
@@ -341,5 +353,12 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+.switch-btn {
+  height: 30px;
+  background-color: white;
+  margin-top: 30px;
+  width: 100px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -19,14 +19,19 @@ export default class ModoMap extends Component {
 		this.state = {
 			modoLoc: this.props.data.modoLocation,
 			loading: true,
-			newCenter: {}
+			newCenter: {},
+			mode: '',
+			prevMode: ''
 		};
 	}
 
 	componentDidMount() {
+		console.log(this.props.data);
 		axios.get('http://localhost:5000/cars').then((res) => {
 			this.setState({
-				zipLoc: res.data
+				zipLoc: res.data,
+				mode: this.props.data.mode,
+				prevMode: this.props.data.prevMode
 			});
 		});
 	}
@@ -62,16 +67,7 @@ export default class ModoMap extends Component {
 						lng={data.Longitude}
 						text={
 							<Link className="modoMap" to={`/modo/${data.LocationID}`}>
-								<img
-									className="modo"
-									onClick={() => {
-										console.log('----------------------------');
-										console.log('clicked');
-										console.log(data.LocationID);
-									}}
-									src={Modo}
-									alt="modo"
-								/>
+								<img className="modo" src={Modo} alt="modo" />
 							</Link>
 						}
 					/>
@@ -95,6 +91,15 @@ export default class ModoMap extends Component {
 					this.modoMap();
 				});
 		}
+
+		if (this.state.mode !== this.state.prevMode) {
+			// this.setState({
+			// 	prevMode: this.state.mode
+			// });
+			console.log(this.state.mode);
+		}
+		// console.log(this.state.mode);
+		// console.log(this.state.prevMode);
 	}
 
 	render() {

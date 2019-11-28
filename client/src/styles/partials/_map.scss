@@ -1,14 +1,16 @@
 .mapDiv {
 	display: flex;
-	justify-content: center;
+	// justify-content: center;
+	align-items: center;
 	height: 100vh;
 	background-image: url('../assets/images/background.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
+	flex-direction: column;
 }
 
 .map {
-	margin-top: 50px;
+	margin-top: 10px;
 	height: 400px;
 	width: 85%;
 	position: relative;
@@ -93,7 +95,7 @@
 
 @include desktop {
 	.map {
-		margin-top: 80px;
+		margin-top: 20px;
 		height: 80%;
 	}
 	.searchBox {
