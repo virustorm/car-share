@@ -3,13 +3,17 @@ import { geolocated } from 'react-geolocated';
 import Map from '../Componenets/Map';
 
 class Demo extends React.Component {
+	state = {
+		mode: 'Cars'
+	};
+
 	render() {
 		return !this.props.isGeolocationAvailable ? (
 			<div className="loading">Your browser does not support Geolocation</div>
 		) : !this.props.isGeolocationEnabled ? (
 			<div className="loading">Geolocation is not enabled</div>
 		) : this.props.coords ? (
-			<Map data={this.props} />
+			<Map data={this.props} stat={this.state} />
 		) : (
 			<div className="loading">Getting the location data&hellip;</div>
 		);

@@ -121,9 +121,6 @@ export default class ModoMap extends Component {
 						lng={this.props.data.center.lng}
 						text={<FontAwesomeIcon className="circle" icon={faCircle} />}
 					/>
-
-					{this.modoMap()}
-					{this.zipMap()}
 				</GoogleMapReact>
 			);
 		}

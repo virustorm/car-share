@@ -60,7 +60,7 @@
 }
 
 .map {
-  margin-top: 10px;
+  margin-top: 80px;
   height: 400px;
   width: 85%;
   position: relative;
@@ -154,7 +154,7 @@
 
 @media only screen and (min-width: 1440px) {
   .map {
-    margin-top: 20px;
+    margin-top: 60px;
     height: 80%;
   }
   .searchBox {
@@ -360,5 +360,14 @@ body {
   background-color: white;
   margin-top: 30px;
   width: 100px;
+}
+
+.modeChangeBtn {
+  position: absolute;
+  z-index: 12;
+  right: 60px;
+  top: 10px;
+  background-color: white;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=main.css.map */

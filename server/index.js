@@ -8,12 +8,13 @@ var path = require('path');
 const app = express();
 app.use(express.json());
 
-mongoose
-	.connect(`mongodb://localhost:27017/carShareDB`, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	})
-	.catch((error) => console.log(error));
+mongoose.connect(`mongodb://localhost:27017/carShareDB`, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+}),
+	() => {
+		console.log('Connected!');
+	};
 
 app.use(cors());
 
@@ -22,6 +23,7 @@ app.get('/', function(req, res) {
 });
 
 app.use('/cars', require('./routes/zipCar'));
+app.use('/bikes', require('./routes/mobiBike'));
 
 app.listen(5000, function() {
 	console.log('boop');

@@ -16,3 +16,11 @@ body {
 	margin-top: 30px;
 	width: 100px;
 }
+.modeChangeBtn {
+	position: absolute;
+	z-index: 12;
+	right: 60px;
+	top: 10px;
+	background-color: white;
+	border-radius: 10px;
+}
