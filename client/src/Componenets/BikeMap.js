@@ -3,15 +3,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import GoogleMapReact from 'google-map-react';
-import Modo from '../assets/images/modo.png';
-import zip from '../assets/icons/zip.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
+import mobi from '../assets/icons/mobi.jpg';
+
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const apiKey = 'AIzaSyC_f-DBHL8cc-MhQSPAYMdGRWkInlwY7GQ';
-const ZipReactComponent = ({ text }) => <div>{text}</div>;
 
 export default class ModoMap extends Component {
 	constructor(props) {
@@ -21,52 +20,23 @@ export default class ModoMap extends Component {
 			loading: true,
 			newCenter: {},
 			mode: 'Cars',
-			prevMode: ''
+			prevMode: '',
+			mobiLoc: []
 		};
 	}
 
-	componentDidMount() {
-		axios.get('http://localhost:5000/cars').then((res) => {
-			this.setState({
-				zipLoc: res.data,
-				mode: this.props.data.mode,
-				prevMode: this.props.data.prevMode
-			});
-		});
-	}
-
-	zipMap = () => {
+	mobiMap = () => {
 		return (
-			this.props.data.zipLoc &&
-			this.props.data.zipLoc.map((data, index) => {
+			this.props.data.mobiLoc &&
+			this.props.data.mobiLoc.map((data, index) => {
 				return (
-					<ZipReactComponent
+					<AnyReactComponent
 						key={index}
 						lat={data.lat}
 						lng={data.lng}
 						text={
-							<Link className="zipMap" to={`/zip/${data._id}`}>
-								<img className="zip" src={zip} alt="ZipCar" />
-							</Link>
-						}
-					/>
-				);
-			})
-		);
-	};
-
-	modoMap = () => {
-		return (
-			this.state.modoLoc &&
-			this.state.modoLoc.map((data, index) => {
-				return (
-					<AnyReactComponent
-						key={index}
-						lat={data.Latitude}
-						lng={data.Longitude}
-						text={
-							<Link className="modoMap" to={`/modo/${data.LocationID}`}>
-								<img className="modo" src={Modo} alt="modo" />
+							<Link className="modoMap" to={`/modo/${data._id}`}>
+								<img className="mobi" src={mobi} alt="mobi" />
 							</Link>
 						}
 					/>
@@ -93,36 +63,20 @@ export default class ModoMap extends Component {
 	}
 
 	render() {
-		if (this.state.mode === 'Bike') {
-			return (
-				<GoogleMapReact
-					bootstrapURLKeys={{ key: apiKey }}
-					defaultCenter={this.props.data.center}
-					center={this.props.data.center}
-					defaultZoom={this.props.data.zoom}
-				>
-					<AnyReactComponent
-						lat={this.props.data.center.lat}
-						lng={this.props.data.center.lng}
-						text={<FontAwesomeIcon className="circle" icon={faCircle} />}
-					/>
-				</GoogleMapReact>
-			);
-		} else {
-			return (
-				<GoogleMapReact
-					bootstrapURLKeys={{ key: apiKey }}
-					defaultCenter={this.props.data.center}
-					center={this.props.data.center}
-					defaultZoom={this.props.data.zoom}
-				>
-					<AnyReactComponent
-						lat={this.props.data.center.lat}
-						lng={this.props.data.center.lng}
-						text={<FontAwesomeIcon className="circle" icon={faCircle} />}
-					/>
-				</GoogleMapReact>
-			);
-		}
+		return (
+			<GoogleMapReact
+				bootstrapURLKeys={{ key: apiKey }}
+				defaultCenter={this.props.data.center}
+				center={this.props.data.center}
+				defaultZoom={this.props.data.zoom}
+			>
+				<AnyReactComponent
+					lat={this.props.data.center.lat}
+					lng={this.props.data.center.lng}
+					text={<FontAwesomeIcon className="circle" icon={faCircle} />}
+				/>
+				{this.mobiMap()}
+			</GoogleMapReact>
+		);
 	}
 }

@@ -115,6 +115,12 @@
   width: 30px;
 }
 
+.mobi {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
 .loading {
   font-size: 50px;
 }

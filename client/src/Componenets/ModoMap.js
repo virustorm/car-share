@@ -8,6 +8,7 @@ import zip from '../assets/icons/zip.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import mobi from '../assets/icons/mobi.jpg';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const apiKey = 'AIzaSyC_f-DBHL8cc-MhQSPAYMdGRWkInlwY7GQ';
@@ -21,17 +22,24 @@ export default class ModoMap extends Component {
 			loading: true,
 			newCenter: {},
 			mode: 'Cars',
-			prevMode: ''
+			prevMode: '',
+			mobiLoc: []
 		};
 	}
 
 	componentDidMount() {
 		axios.get('http://localhost:5000/cars').then((res) => {
 			this.setState({
-				zipLoc: res.data,
-				mode: this.props.data.mode,
-				prevMode: this.props.data.prevMode
+				zipLoc: res.data
+				// mode: this.props.data.mode,
+				// prevMode: this.props.data.prevMode
 			});
+		});
+		axios.get('http://localhost:5000/bikes').then((res) => {
+			this.setState({
+				mobiLoc: res.data
+			});
+			// console.log(this.state.mobiLoc);
 		});
 	}
 
@@ -75,6 +83,28 @@ export default class ModoMap extends Component {
 		);
 	};
 
+	mobiLoc = () => {
+		return (
+			this.state.mobiLoc &&
+			this.state.mobiLoc.map((data, index) => {
+				// console.log(data.lat);
+				// console.log(data.lng);
+				return (
+					<AnyReactComponent
+						key={index}
+						lat={data.lat}
+						lng={data.lng}
+						text={
+							<Link className="modoMap" to={`/mobi/${data._id}`}>
+								<img className="modo" src={mobi} alt="mobi" />
+							</Link>
+						}
+					/>
+				);
+			})
+		);
+	};
+
 	componentDidUpdate(prevProps) {
 		if (this.props.data.center !== prevProps.data.center) {
 			axios
@@ -93,39 +123,22 @@ export default class ModoMap extends Component {
 	}
 
 	render() {
-		if (this.state.mode === 'Bike') {
-			return (
-				<GoogleMapReact
-					bootstrapURLKeys={{ key: apiKey }}
-					defaultCenter={this.props.data.center}
-					center={this.props.data.center}
-					defaultZoom={this.props.data.zoom}
-				>
-					<AnyReactComponent
-						lat={this.props.data.center.lat}
-						lng={this.props.data.center.lng}
-						text={<FontAwesomeIcon className="circle" icon={faCircle} />}
-					/>
-				</GoogleMapReact>
-			);
-		} else {
-			return (
-				<GoogleMapReact
-					bootstrapURLKeys={{ key: apiKey }}
-					defaultCenter={this.props.data.center}
-					center={this.props.data.center}
-					defaultZoom={this.props.data.zoom}
-				>
-					<AnyReactComponent
-						lat={this.props.data.center.lat}
-						lng={this.props.data.center.lng}
-						text={<FontAwesomeIcon className="circle" icon={faCircle} />}
-					/>
+		return (
+			<GoogleMapReact
+				bootstrapURLKeys={{ key: apiKey }}
+				defaultCenter={this.props.data.center}
+				center={this.props.data.center}
+				defaultZoom={this.props.data.zoom}
+			>
+				<AnyReactComponent
+					lat={this.props.data.center.lat}
+					lng={this.props.data.center.lng}
+					text={<FontAwesomeIcon className="circle" icon={faCircle} />}
+				/>
 
-					{this.modoMap()}
-					{this.zipMap()}
-				</GoogleMapReact>
-			);
-		}
+				{this.modoMap()}
+				{this.zipMap()}
+			</GoogleMapReact>
+		);
 	}
 }

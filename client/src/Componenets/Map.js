@@ -19,7 +19,8 @@ export default class Map extends React.Component {
 			address: '',
 			zipLoc: [],
 			mode: 'Cars',
-			prevMode: 'Cars'
+			prevMode: 'Cars',
+			mobiLoc: []
 		};
 	}
 
@@ -40,6 +41,12 @@ export default class Map extends React.Component {
 			this.setState({
 				zipLoc: res.data
 			});
+		});
+		axios.get('http://localhost:5000/bikes').then((res) => {
+			this.setState({
+				mobiLoc: res.data
+			});
+			// console.log(this.state.mobiLoc);
 		});
 		this.setState({
 			center: { lat: this.props.data.coords.latitude, lng: this.props.data.coords.longitude },

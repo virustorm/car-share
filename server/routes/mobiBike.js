@@ -21,14 +21,14 @@ router.post('/', (req, res) => {
 		lat: req.body.lat,
 		lng: req.body.lng,
 		location: req.body.location,
-		bikeStalls: req.body.bikeStalls,
-		bikeInStall: req.body.bikeInStall
+		bikeInStall: req.body.bikeInStall,
+		bikeNotInStall: req.body.bikeStalls
 	});
 	bike.save((err) => {
 		if (err) {
 			console.log(err);
 		} else {
-			console.log(car);
+			console.log(bike);
 			console.log('saved');
 		}
 	});
