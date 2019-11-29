@@ -9,6 +9,9 @@ import Header from './Componenets/Header';
 import MainBody from './Componenets/MainBody';
 import ModoPart from './Componenets/ModoPart';
 import ZipPart from './Componenets/ZipPart';
+import Cords from './Componenets/Cord';
+import Login from './Componenets/Login';
+import Register from './Componenets/Register';
 
 function App() {
 	return (
@@ -16,6 +19,9 @@ function App() {
 			<Header />
 			<Switch>
 				<Route path="/" exact component={MainBody} />
+				<Route path="/login" component={Login} />
+				<Route path="/register" component={Register} />
+				<Route path="/map" component={Cords} />
 				<Route path="/modo/:LocationID" component={ModoPart} />
 				<Route path="/zip/:ObjectID" render={(props) => <ZipPart {...props} />} />
 			</Switch>

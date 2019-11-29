@@ -13,7 +13,9 @@ class Demo extends React.Component {
 		) : !this.props.isGeolocationEnabled ? (
 			<div className="loading">Geolocation is not enabled</div>
 		) : this.props.coords ? (
-			<Map data={this.props} stat={this.state} />
+			<div className="mapDiv">
+				<Map data={this.props} stat={this.state} />
+			</div>
 		) : (
 			<div className="loading">Getting the location data&hellip;</div>
 		);

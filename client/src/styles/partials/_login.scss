@@ -1,0 +1,39 @@
+.login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 40%;
+	margin: 40px auto 0 auto;
+	&-title {
+		margin: 10px;
+		text-transform: capitalize;
+	}
+	&-input {
+		padding-left: 10px;
+		&::placeholder {
+			text-transform: capitalize;
+		}
+	}
+	&-btnDiv {
+		display: flex;
+		justify-content: space-around;
+		width: 50%;
+		margin-top: 20px;
+	}
+	&__submitDiv {
+		margin-top: 15px;
+		display: flex;
+		justify-content: space-between;
+		width: 150px;
+	}
+	&-errDiv {
+		margin-top: 10px;
+		color: red;
+	}
+	&-btn {
+		background-color: #c8d6e5;
+		border: 1px solid black;
+
+		// color: white;
+	}
+}
