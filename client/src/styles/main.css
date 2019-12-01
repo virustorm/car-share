@@ -42,6 +42,11 @@
   cursor: pointer;
 }
 
+.header__logout {
+  color: white;
+  margin-left: 20px;
+}
+
 .login {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -21,7 +21,7 @@ export default class Register extends Component {
 				if (res.status === 200) {
 					console.log('200');
 					this.setState({ display: 'none' });
-					window.location = '/map';
+					window.location = '/login';
 				}
 			})
 			.catch((err) => {
@@ -37,6 +37,7 @@ export default class Register extends Component {
 	render() {
 		return (
 			<div className="login">
+				<h1> Register</h1>
 				<h4 className="login-title">username</h4>
 				<input
 					className="login-input"

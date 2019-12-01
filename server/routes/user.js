@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const user = require('../models/user');
+const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
 	user.find({}, (err, users) => {
@@ -8,13 +9,16 @@ router.get('/', (req, res) => {
 	});
 });
 
-router.post('/', (req, result) => {
+router.post('/', async (req, result) => {
+	const pass = req.body.password;
+	const salt = await bcrypt.genSalt(10);
+	const hashPassword = await bcrypt.hash(String(pass), salt);
+
 	const users = new user({
 		username: req.body.username,
-		password: req.body.password
+		password: hashPassword
 	});
-	console.log(req.body.username);
-	console.log(req.body.password);
+
 	user.find({ username: `${req.body.username}` }, (err, res) => {
 		if (res.length > 0) {
 			result.status(400).send('Username Taken');
