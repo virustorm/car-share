@@ -21,7 +21,7 @@ export default class Login extends Component {
 			})
 			.then((res) => {
 				localStorage.setItem('token', JSON.stringify(res.data));
-				this.setState({ status: 'loggin in', display: 'block' });
+				this.setState({ status: 'Just You Wait', display: 'block' });
 				window.location.href = 'http://localhost:3000/map';
 			})
 			.catch((error) => {
@@ -38,7 +38,7 @@ export default class Login extends Component {
 	render() {
 		return (
 			<div className="login">
-				<h1>Login</h1>
+				<h1 className="login-h1">Login</h1>
 				<h4 className="login-title">username</h4>
 				<input
 					className="login-input"
@@ -46,7 +46,7 @@ export default class Login extends Component {
 					placeholder="username"
 					ref={(ref) => (this.username = ref)}
 				/>
-				<h4 className="login-title">password</h4>
+				<h4 className="login-title login-regi">password</h4>
 				<input
 					className="login-input"
 					type="password"

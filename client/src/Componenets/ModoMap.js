@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 import mobi from '../assets/icons/mobi.jpg';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
-const apiKey = 'AIzaSyC_f-DBHL8cc-MhQSPAYMdGRWkInlwY7GQ';
 const ZipReactComponent = ({ text }) => <div>{text}</div>;
 
 export default class ModoMap extends Component {
@@ -125,7 +124,9 @@ export default class ModoMap extends Component {
 	render() {
 		return (
 			<GoogleMapReact
-				bootstrapURLKeys={{ key: apiKey }}
+				bootstrapURLKeys={{
+					key: process.env.REACT_APP_APIKEY
+				}}
 				defaultCenter={this.props.data.center}
 				center={this.props.data.center}
 				defaultZoom={this.props.data.zoom}

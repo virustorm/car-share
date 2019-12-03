@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import 'axios';
 import { Link } from 'react-router-dom';
+import FbLogin from './FbLogin';
+import GoogleLogin from './GoogleLogin';
 // import axios from 'axios';
 // import cookies from 'universal-cookie';
 
@@ -22,6 +24,8 @@ export default class MainBody extends Component {
 								Register
 							</button>
 						</Link>
+						<FbLogin />
+						<GoogleLogin />
 					</div>
 				</div>
 			);

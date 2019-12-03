@@ -8,6 +8,11 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+	background: url('../assets/background-images/undraw_Destination_6jtj.svg') 55% bottom no-repeat;
+
+	background-size: 300px;
+	height: 100vh;
+	background-color: rgba(84, 160, 255, 0.1);
 }
 
 .switch-btn {
@@ -23,4 +28,26 @@ body {
 	top: 10px;
 	background-color: white;
 	border-radius: 10px;
+}
+
+@include tablet {
+	html,
+	body {
+		background: url('../assets/background-images/undraw_by_my_car_ttge.svg') 30px 90% no-repeat,
+			url('../assets/background-images/undraw_startman1_h7l9.svg') 95% 30% no-repeat;
+		background-size: 300px, 200px;
+		height: 100vh;
+		background-color: rgba(84, 160, 255, 0.1);
+	}
+}
+@include desktop {
+	html,
+	body {
+		background: url('../assets/background-images/undraw_by_my_car_ttge.svg') 10% 90% no-repeat,
+			url('../assets/background-images/undraw_Destination_6jtj.svg') 75% 80% no-repeat,
+			url('../assets/background-images/undraw_startman1_h7l9.svg') 95% 30% no-repeat;
+		background-size: 300px, 300px, 200px;
+		height: 100vh;
+		background-color: rgba(84, 160, 255, 0.1);
+	}
 }

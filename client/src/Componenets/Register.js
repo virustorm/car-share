@@ -37,7 +37,7 @@ export default class Register extends Component {
 	render() {
 		return (
 			<div className="login">
-				<h1> Register</h1>
+				<h1 className="login-h1"> Register</h1>
 				<h4 className="login-title">username</h4>
 				<input
 					className="login-input"
@@ -45,7 +45,7 @@ export default class Register extends Component {
 					placeholder="username"
 					ref={(ref) => (this.username = ref)}
 				/>
-				<h4 className="login-title">password</h4>
+				<h4 className="login-title login-regi">password</h4>
 				<input
 					className="login-input"
 					type="password"
