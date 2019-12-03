@@ -22,7 +22,7 @@ export default class Facebook extends Component {
 			});
 
 		localStorage.setItem('token', JSON.stringify(response.accessToken));
-		// window.location.href = 'http://localhost:3000/map';
+		window.location.href = 'http://localhost:3000/map';
 	};
 
 	componentClicked = () => {

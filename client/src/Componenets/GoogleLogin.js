@@ -17,7 +17,7 @@ export default class Facebook extends Component {
 			display: 'block'
 		});
 		localStorage.setItem('token', JSON.stringify(response.accessToken));
-		// window.location.href = 'http://localhost:3000/map';
+		window.location.href = 'http://localhost:3000/map';
 	};
 
 	componentClicked = () => {
