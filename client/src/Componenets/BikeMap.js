@@ -35,7 +35,7 @@ export default class ModoMap extends Component {
 						lat={data.lat}
 						lng={data.lng}
 						text={
-							<Link className="modoMap" to={`/modo/${data._id}`}>
+							<Link className="modoMap" to={`/mobi/${data._id}`}>
 								<img className="mobi" src={mobi} alt="mobi" />
 							</Link>
 						}
@@ -45,22 +45,22 @@ export default class ModoMap extends Component {
 		);
 	};
 
-	componentDidUpdate(prevProps) {
-		if (this.props.data.center !== prevProps.data.center) {
-			axios
-				.get(
-					`https://bookit.modo.coop/api/v2/nearby?lat=${this.props.data.center.lat}&long=${this.props.data
-						.center.lng}&distance=2000`
-				)
-				.then((result) => {
-					this.setState({
-						modoLoc: result.data.Response.Locations,
-						newCenter: prevProps.data.center
-					});
-					this.modoMap();
-				});
-		}
-	}
+	// componentDidUpdate(prevProps) {
+	// 	if (this.props.data.center !== prevProps.data.center) {
+	// 		axios
+	// 			.get(
+	// 				`https://bookit.modo.coop/api/v2/nearby?lat=${this.props.data.center.lat}&long=${this.props.data
+	// 					.center.lng}&distance=2000`
+	// 			)
+	// 			.then((result) => {
+	// 				this.setState({
+	// 					modoLoc: result.data.Response.Locations,
+	// 					newCenter: prevProps.data.center
+	// 				});
+	// 				this.modoMap();
+	// 			});
+	// 	}
+	// }
 
 	render() {
 		return (

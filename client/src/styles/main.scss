@@ -1,8 +1,11 @@
 @import './partials/breakpoints';
+@import './partials/fonts';
 @import './partials/header';
 @import './partials/login';
 @import './partials/map';
 @import './partials/modoMap';
+@import './partials/mobiDetail';
+@import './partials/table';
 
 html,
 body {
@@ -13,6 +16,7 @@ body {
 	background-size: 300px;
 	height: 100vh;
 	background-color: rgba(84, 160, 255, 0.1);
+	font-family: NunitoRegular;
 }
 
 .switch-btn {

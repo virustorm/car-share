@@ -12,6 +12,7 @@ import ZipPart from './Componenets/ZipPart';
 import Cords from './Componenets/Cord';
 import Login from './Componenets/Login';
 import Register from './Componenets/Register';
+import MobiPart from './Componenets/BikePart';
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 				<Route path="/map" component={Cords} />
 				<Route path="/modo/:LocationID" component={ModoPart} />
 				<Route path="/zip/:ObjectID" render={(props) => <ZipPart {...props} />} />
+				<Route path="/mobi/:ID" render={(props) => <MobiPart {...props} />} />
 			</Switch>
 		</div>
 	);

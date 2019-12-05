@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ModoMap from '../Componenets/ModoMap';
 import BikeMap from '../Componenets/BikeMap';
+import TableMap from '../Componenets/TableMap';
 
 import PlacesAutocomplete from 'react-places-autocomplete';
 // import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
@@ -18,9 +19,10 @@ export default class Map extends React.Component {
 			value: '',
 			address: '',
 			zipLoc: [],
-			mode: 'Cars',
+			mode: 'Bike',
 			prevMode: 'Cars',
-			mobiLoc: []
+			mobiLoc: [],
+			theModoArr: []
 		};
 	}
 
@@ -32,6 +34,15 @@ export default class Map extends React.Component {
 					.coords.longitude}&distance=2000`
 			)
 			.then((result) => {
+				result.data.Response.Locations.map((data) => {
+					axios
+						.get(`https://bookit.modo.coop/api/v2/location_list?location_id=${data.LocationID}`)
+						.then((res) => {
+							let info = Object.values(res.data.Response.Locations);
+							let desc = info[0].ShortDescription;
+							this.state.theModoArr.push(desc);
+						});
+				});
 				this.setState({
 					modoLocation: result.data.Response.Locations,
 					loading: false
@@ -48,6 +59,7 @@ export default class Map extends React.Component {
 			});
 			// console.log(this.state.mobiLoc);
 		});
+
 		this.setState({
 			center: { lat: this.props.data.coords.latitude, lng: this.props.data.coords.longitude },
 			zoom: 16
@@ -82,7 +94,7 @@ export default class Map extends React.Component {
 	};
 
 	render() {
-		if (this.state.mode === 'Cars') {
+		if (this.state.mode === 'Bike') {
 			if (this.state.loading === true) {
 				return <div className="loading">Loading...</div>;
 			}
@@ -130,9 +142,10 @@ export default class Map extends React.Component {
 						{this.state.mode}
 					</button>
 					<ModoMap data={this.state} />
+					<TableMap data={this.state} />
 				</div>
 			);
-		} else if (this.state.mode === 'Bike') {
+		} else if (this.state.mode === 'Cars') {
 			if (this.state.loading === true) {
 				return <div className="loading">Loading...</div>;
 			}
@@ -180,6 +193,7 @@ export default class Map extends React.Component {
 						{this.state.mode}
 					</button>
 					<BikeMap data={this.state} />
+					<TableMap data={this.state} />
 				</div>
 			);
 		}

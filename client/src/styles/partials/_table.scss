@@ -1,0 +1,38 @@
+.table {
+	margin-top: 170px;
+	// display: flex;
+	// justify-content: center;
+	&__zip {
+		margin: 20px 0;
+
+		&-location {
+			font-size: 15px;
+			font-family: NunitoDemi;
+		}
+		&-car {
+			font-size: 15px;
+		}
+	}
+	&-select {
+		display: flex;
+		width: 100%;
+		justify-content: space-around;
+	}
+	&-sBtn {
+		border: 1px solid black;
+		background-color: transparent;
+		transition: ease-in-out 0.2s all;
+		&:focus {
+			outline: none;
+		}
+		&:hover {
+			transform: scale(1.1);
+			background-color: #95afc0;
+			color: white;
+		}
+	}
+	&-links {
+		text-transform: none;
+		color: black;
+	}
+}

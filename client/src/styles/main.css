@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "NunitoRegular";
+  src: url("../assets/fonts/Nunito-Regular.ttf");
+}
+
+@font-face {
+  font-family: "NunitoDemi";
+  src: url("../assets/fonts/Nunito-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "NunitoBold";
+  src: url("../assets/fonts/Nunito-Bold.ttf");
+}
+
 .navbar {
   padding: 0 3%;
 }
@@ -387,7 +402,8 @@
 
 .modoCar {
   padding-top: 20px;
-  height: 100vh;
+  height: 100%;
+  background-color: white;
 }
 
 .modoCar-title {
@@ -395,6 +411,7 @@
   margin-bottom: 20px;
   font-size: 25px;
   font-weight: 900;
+  font-family: NunitoBold;
 }
 
 .modoCar__title-modo {
@@ -426,6 +443,7 @@
 .modoPart-des {
   margin: 20px 0 40px 0;
   font-size: 20px;
+  font-family: NunitoDemi;
 }
 
 .modoPart-wholeInfo {
@@ -557,6 +575,140 @@
   }
 }
 
+.mobiBike {
+  padding: 0 5%;
+  background-color: white;
+  height: 100%;
+  padding-top: 10px;
+}
+
+.mobiPart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mobiPart-pic {
+  width: 80%;
+}
+
+.mobiPart-stall {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.mobiPart__tips {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+}
+
+.mobiPart__tips-title {
+  font-family: NunitoDemi;
+}
+
+.mobiPart__tips-pDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.mobiPart__tips-pic {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 1100px) {
+  .mobiPart-stall h3 {
+    font-size: 50px;
+  }
+  .mobiPart__tips h3 {
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+  .mobiPart__tips-pDiv {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .mobiPart__tips-pic {
+    width: 45%;
+  }
+}
+
+.table {
+  margin-top: 170px;
+}
+
+.table__zip {
+  margin: 20px 0;
+}
+
+.table__zip-location {
+  font-size: 15px;
+  font-family: NunitoDemi;
+}
+
+.table__zip-car {
+  font-size: 15px;
+}
+
+.table-select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.table-sBtn {
+  border: 1px solid black;
+  background-color: transparent;
+  -webkit-transition: ease-in-out 0.2s all;
+  transition: ease-in-out 0.2s all;
+}
+
+.table-sBtn:focus {
+  outline: none;
+}
+
+.table-sBtn:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background-color: #95afc0;
+  color: white;
+}
+
+.table-links {
+  text-transform: none;
+  color: black;
+}
+
 html,
 body {
   margin: 0;
@@ -565,6 +717,7 @@ body {
   background-size: 300px;
   height: 100vh;
   background-color: rgba(84, 160, 255, 0.1);
+  font-family: NunitoRegular;
 }
 
 .switch-btn {

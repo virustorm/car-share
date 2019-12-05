@@ -1,0 +1,59 @@
+.mobiBike {
+	padding: 0 5%;
+	background-color: white;
+	height: 100%;
+	padding-top: 10px;
+}
+.mobiPart {
+	display: flex;
+	justify-content: center;
+	&-pic {
+		width: 80%;
+	}
+	&-stall {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 10px;
+	}
+
+	&__tips {
+		display: flex;
+		flex-direction: column;
+		margin-top: 20px;
+		&-title {
+			font-family: NunitoDemi;
+		}
+		&-pDiv {
+			display: flex;
+			flex-direction: column;
+		}
+		&-pic {
+			width: 100%;
+			margin-bottom: 20px;
+			// height: 100px;
+		}
+	}
+}
+@include desktop {
+	.mobiPart {
+		&-stall {
+			& h3 {
+				font-size: 50px;
+			}
+		}
+		&__tips {
+			& h3 {
+				font-size: 50px;
+				margin-bottom: 30px;
+			}
+			&-pDiv {
+				flex-direction: row;
+				justify-content: space-around;
+			}
+			&-pic {
+				width: 45%;
+			}
+		}
+	}
+}

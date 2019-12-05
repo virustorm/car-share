@@ -21,7 +21,7 @@ export default class Register extends Component {
 				if (res.status === 200) {
 					console.log('200');
 					this.setState({ display: 'none' });
-					window.location = '/login';
+					window.location = '/';
 				}
 			})
 			.catch((err) => {
