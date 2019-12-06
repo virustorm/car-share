@@ -48,6 +48,14 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
+}
+
 app.use('/cars', require('./routes/zipCar'));
 app.use('/bikes', require('./routes/mobiBike'));
 app.use('/register', require('./routes/user'));
