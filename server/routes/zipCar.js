@@ -23,6 +23,7 @@ router.post('/', (req, res) => {
 		location: req.body.location,
 		cars: req.body.cars
 	});
+
 	car.save((err) => {
 		if (err) {
 			console.log(err);

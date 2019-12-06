@@ -24,6 +24,7 @@ router.post('/', (req, res) => {
 		bikeInStall: req.body.bikeInStall,
 		bikeNotInStall: req.body.bikeStalls
 	});
+
 	bike.save((err) => {
 		if (err) {
 			console.log(err);

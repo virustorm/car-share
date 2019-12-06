@@ -43,7 +43,7 @@ export default function TableMap(props) {
 
 	window.onscroll = function(ev) {
 		if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-			changeNumber(infoShowNumber + 3);
+			changeNumber(infoShowNumber + 2);
 		}
 	};
 
@@ -71,7 +71,7 @@ export default function TableMap(props) {
 						Mobi-Bikes
 					</button>
 				</div>
-				{zipTable}
+				<div className="table__flowTable">{zipTable}</div>
 			</div>
 		);
 	} else if (tableMode === 'modo') {
@@ -88,7 +88,7 @@ export default function TableMap(props) {
 						Mobi-Bikes
 					</button>
 				</div>
-				{modoTable}
+				<div className="table__flowTable">{modoTable}</div>
 			</div>
 		);
 	} else if (tableMode === 'mobi') {
@@ -105,7 +105,7 @@ export default function TableMap(props) {
 						Mobi-Bikes
 					</button>
 				</div>
-				{mobiTable}
+				<div className="table__flowTable">{mobiTable}</div>
 			</div>
 		);
 	}

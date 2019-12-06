@@ -267,9 +267,7 @@
       -ms-flex-align: center;
           align-items: center;
   height: 100vh;
-  background-image: url("../assets/images/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: #edf5fe;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -661,7 +659,7 @@
 }
 
 .table {
-  margin-top: 170px;
+  width: 100%;
 }
 
 .table__zip {
@@ -707,6 +705,44 @@
 .table-links {
   text-transform: none;
   color: black;
+}
+
+@media only screen and (min-width: 768px) {
+  .table__flowTable {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .table-select {
+    margin-bottom: 20px;
+  }
+  .table__zip {
+    margin: 20px 0;
+    width: 33%;
+  }
+  .table__flowTable {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .table__zip-location {
+    font-size: 25px;
+  }
+  .table-sBtn {
+    font-size: 25px;
+  }
 }
 
 html,

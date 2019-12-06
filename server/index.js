@@ -11,13 +11,27 @@ var flash = require('connect-flash');
 const dotenv = require('dotenv');
 app.use(express.json());
 
-mongoose.connect(`mongodb://localhost:27017/carShareDB`, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-}),
+// mongoose.connect(
+// 	`mongodb://localhost:27017/carShareDB`,
+// 	{
+// 		useNewUrlParser: true,
+// 		useUnifiedTopology: true
+// 	},
+// 	() => {
+// 		console.log('connected');
+// 	}
+// );
+
+mongoose.connect(
+	`mongodb+srv://virustorm:chengyu0718@aerocar-avw6q.mongodb.net/test?retryWrites=true&w=majority`,
+	{
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	},
 	() => {
-		console.log('Connected!');
-	};
+		console.log('connected');
+	}
+);
 
 require('./config/passport')(passport); // pass passport for configuration
 dotenv.config();

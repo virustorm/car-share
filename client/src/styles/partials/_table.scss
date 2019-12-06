@@ -1,5 +1,6 @@
 .table {
-	margin-top: 170px;
+	width: 100%;
+	// margin-top: 170px;
 	// display: flex;
 	// justify-content: center;
 	&__zip {
@@ -34,5 +35,41 @@
 	&-links {
 		text-transform: none;
 		color: black;
+	}
+}
+@include tablet {
+	.table {
+		&__flowTable {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		&-select {
+			margin-bottom: 20px;
+		}
+		&__zip {
+			margin: 20px 0;
+			width: 33%;
+		}
+	}
+	.table__flowTable {
+		display: flex;
+	}
+}
+
+@include desktop {
+	.table {
+		// &-select {
+		// 	margin-top: 200px;
+		// }
+		&__zip {
+			&-location {
+				font-size: 25px;
+			}
+		}
+		&-sBtn {
+			font-size: 25px;
+		}
 	}
 }
