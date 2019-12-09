@@ -5,11 +5,27 @@
 	margin-top: 30px;
 	&-btnDiv {
 		margin-top: 20px;
-		display: flex;
+		// display: flex;
 		width: 250px;
+		// justify-content: space-around;
+	}
+	&-subHero {
+		display: flex;
 		justify-content: space-around;
 	}
 	&-btn {
+		background-color: transparent;
+		border: 1px solid black;
+
+		margin: 20px 0 0 auto;
+		height: 30px;
+		width: 30%;
+		transition: 0.2s ease-in-out all;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+	&-regBtn {
 		background-color: transparent;
 		border: 1px solid black;
 
@@ -49,51 +65,89 @@
 		margin-top: 5px;
 	}
 }
-
+.regi {
+	&-btn {
+		background-color: transparent;
+		border: 1px solid black;
+		margin-top: 20px;
+		transition: 0.2s ease-in-out all;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}
 @include tablet {
 	.login {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		width: 40%;
-		margin: 40px auto 0 auto;
-
+		margin: 60px auto 60px auto;
+		&-tab {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
 		&-title {
 			margin: 10px;
 			text-transform: capitalize;
+			font-size: 15px;
 		}
 		&-input {
 			padding-left: 10px;
+			width: 120px;
 			&::placeholder {
 				text-transform: capitalize;
 			}
 		}
 		&-btnDiv {
+			// display: flex;
+			// justify-content: space-around;
+			text-align: start;
+			width: 350px;
+			margin-top: 60px;
+		}
+		&-promo {
+			margin-left: 30px;
+		}
+		&-subHero {
 			display: flex;
 			justify-content: space-around;
-			width: 250px;
-			margin-top: 20px;
+			margin-top: 40px;
 		}
 		&__submitDiv {
-			margin-top: 15px;
+			margin: 0 0 0 15px;
 			display: flex;
 			justify-content: space-between;
-			width: 150px;
+			width: 140px;
 		}
 		&-errDiv {
 			margin-top: 10px;
 			color: red;
 		}
 		&-btn {
-			height: 45px;
+			height: 28px;
+			margin: 0 0 0 15px;
+			&:focus {
+				outline: none;
+			}
+		}
+		&-regBtn {
+			height: 28px;
+			margin: 0 0 0 15px;
+
+			&:focus {
+				outline: none;
+			}
 		}
 	}
 }
 
 @include desktop {
 	.login {
-		margin-top: 80px;
+		margin: 80px 0 0 auto;
 		width: 50%;
+
 		&-title {
 			font-size: 40px;
 		}
@@ -105,7 +159,14 @@
 			font-size: 50px;
 		}
 		&-title {
-			font-size: 30px;
+			font-size: 18px;
+		}
+		&-input {
+			width: 100px;
+			height: 23px;
+		}
+		&-regBtn {
+			height: 45px;
 		}
 	}
 }

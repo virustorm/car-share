@@ -11,7 +11,7 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	background: url('../assets/background-images/undraw_Destination_6jtj.svg') 55% bottom no-repeat;
+	// background: url('../assets/background-images/undraw_Destination_6jtj.svg') 55% bottom no-repeat;
 
 	background-size: 300px;
 	height: 100vh;
@@ -33,7 +33,14 @@ body {
 	background-color: white;
 	border-radius: 10px;
 }
-
+.loading {
+	height: 100vh;
+	width: 100vw;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 @include tablet {
 	html,
 	body {
@@ -47,10 +54,9 @@ body {
 @include desktop {
 	html,
 	body {
-		background: url('../assets/background-images/undraw_by_my_car_ttge.svg') 10% 90% no-repeat,
-			url('../assets/background-images/undraw_Destination_6jtj.svg') 75% 80% no-repeat,
-			url('../assets/background-images/undraw_startman1_h7l9.svg') 95% 30% no-repeat;
-		background-size: 300px, 300px, 200px;
+		background: url('../assets/mockupimg.jpg') 0% 75px no-repeat;
+
+		background-size: 54% 95%;
 		height: 100vh;
 		background-color: rgba(84, 160, 255, 0.1);
 	}

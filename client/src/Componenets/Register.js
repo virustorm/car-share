@@ -53,11 +53,11 @@ export default class Register extends Component {
 					ref={(ref) => (this.password = ref)}
 				/>
 				<div className="login__submitDiv">
-					<button className="login-btn" type="button" onClick={this.submit}>
+					<button className="regi-btn" type="button" onClick={this.submit}>
 						Submit
 					</button>
 					<Link to="/">
-						<button className="login-btn" type="button">
+						<button className="regi-btn" type="button">
 							Cancel
 						</button>
 					</Link>

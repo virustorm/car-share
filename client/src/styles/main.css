@@ -78,15 +78,33 @@
 
 .login-btnDiv {
   margin-top: 20px;
+  width: 250px;
+}
+
+.login-subHero {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 250px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
 
 .login-btn {
+  background-color: transparent;
+  border: 1px solid black;
+  margin: 20px 0 0 auto;
+  height: 30px;
+  width: 30%;
+  -webkit-transition: 0.2s ease-in-out all;
+  transition: 0.2s ease-in-out all;
+}
+
+.login-btn:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.login-regBtn {
   background-color: transparent;
   border: 1px solid black;
   height: 45px;
@@ -153,6 +171,19 @@
   margin-top: 5px;
 }
 
+.regi-btn {
+  background-color: transparent;
+  border: 1px solid black;
+  margin-top: 20px;
+  -webkit-transition: 0.2s ease-in-out all;
+  transition: 0.2s ease-in-out all;
+}
+
+.regi-btn:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 @media only screen and (min-width: 768px) {
   .login {
     display: -webkit-box;
@@ -166,14 +197,28 @@
         -ms-flex-align: center;
             align-items: center;
     width: 40%;
-    margin: 40px auto 0 auto;
+    margin: 60px auto 60px auto;
+  }
+  .login-tab {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .login-title {
     margin: 10px;
     text-transform: capitalize;
+    font-size: 15px;
   }
   .login-input {
     padding-left: 10px;
+    width: 120px;
   }
   .login-input::-webkit-input-placeholder {
     text-transform: capitalize;
@@ -188,36 +233,54 @@
     text-transform: capitalize;
   }
   .login-btnDiv {
+    text-align: start;
+    width: 350px;
+    margin-top: 60px;
+  }
+  .login-promo {
+    margin-left: 30px;
+  }
+  .login-subHero {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    width: 250px;
-    margin-top: 20px;
+    margin-top: 40px;
   }
   .login__submitDiv {
-    margin-top: 15px;
+    margin: 0 0 0 15px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    width: 150px;
+    width: 140px;
   }
   .login-errDiv {
     margin-top: 10px;
     color: red;
   }
   .login-btn {
-    height: 45px;
+    height: 28px;
+    margin: 0 0 0 15px;
+  }
+  .login-btn:focus {
+    outline: none;
+  }
+  .login-regBtn {
+    height: 28px;
+    margin: 0 0 0 15px;
+  }
+  .login-regBtn:focus {
+    outline: none;
   }
 }
 
 @media only screen and (min-width: 1100px) {
   .login {
-    margin-top: 80px;
+    margin: 80px 0 0 auto;
     width: 50%;
   }
   .login-title {
@@ -231,7 +294,14 @@
     font-size: 50px;
   }
   .login-title {
-    font-size: 30px;
+    font-size: 18px;
+  }
+  .login-input {
+    width: 100px;
+    height: 23px;
+  }
+  .login-regBtn {
+    height: 45px;
   }
 }
 
@@ -400,6 +470,7 @@
 
 .modoCar {
   padding-top: 20px;
+  height: 100vh;
   height: 100%;
   background-color: white;
 }
@@ -676,6 +747,7 @@
 }
 
 .table-select {
+  margin-top: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -749,7 +821,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: url("../assets/background-images/undraw_Destination_6jtj.svg") 55% bottom no-repeat;
   background-size: 300px;
   height: 100vh;
   background-color: rgba(84, 160, 255, 0.1);
@@ -772,6 +843,21 @@ body {
   border-radius: 10px;
 }
 
+.loading {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 @media only screen and (min-width: 768px) {
   html,
   body {
@@ -785,8 +871,8 @@ body {
 @media only screen and (min-width: 1100px) {
   html,
   body {
-    background: url("../assets/background-images/undraw_by_my_car_ttge.svg") 10% 90% no-repeat, url("../assets/background-images/undraw_Destination_6jtj.svg") 75% 80% no-repeat, url("../assets/background-images/undraw_startman1_h7l9.svg") 95% 30% no-repeat;
-    background-size: 300px, 300px, 200px;
+    background: url("../assets/mockupimg.jpg") 0% 75px no-repeat;
+    background-size: 54% 95%;
     height: 100vh;
     background-color: rgba(84, 160, 255, 0.1);
   }

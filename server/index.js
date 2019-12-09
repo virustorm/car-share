@@ -21,9 +21,8 @@ app.use(express.json());
 // 		console.log('connected');
 // 	}
 // );
-
 mongoose.connect(
-	`mongodb+srv://virustorm:chengyu0718@aerocar-avw6q.mongodb.net/test?retryWrites=true&w=majority`,
+	`mongodb://localhost:27017/carShareDB`,
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true
@@ -32,6 +31,16 @@ mongoose.connect(
 		console.log('connected');
 	}
 );
+// mongoose.connect(
+// 	`mongodb+srv://virustorm:chengyu0718@aerocar-avw6q.mongodb.net/test?retryWrites=true&w=majority`,
+// 	{
+// 		useNewUrlParser: true,
+// 		useUnifiedTopology: true
+// 	},
+// 	() => {
+// 		console.log('connected');
+// 	}
+// );
 
 require('./config/passport')(passport); // pass passport for configuration
 dotenv.config();
