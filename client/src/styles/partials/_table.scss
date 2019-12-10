@@ -48,6 +48,7 @@
 		}
 		&-select {
 			margin-bottom: 20px;
+			margin-top: 50px;
 		}
 		&__zip {
 			margin: 20px 0;
@@ -61,9 +62,9 @@
 
 @include desktop {
 	.table {
-		// &-select {
-		// 	margin-top: 200px;
-		// }
+		&-select {
+			margin-top: 150px;
+		}
 		&__zip {
 			&-location {
 				font-size: 25px;

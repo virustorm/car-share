@@ -281,7 +281,7 @@
 @media only screen and (min-width: 1100px) {
   .login {
     margin: 80px 0 0 auto;
-    width: 50%;
+    width: 40%;
   }
   .login-title {
     font-size: 40px;
@@ -302,6 +302,26 @@
   }
   .login-regBtn {
     height: 45px;
+    -webkit-transition: ease-in-out 0.2s all;
+    transition: ease-in-out 0.2s all;
+  }
+  .login-regBtn:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    background-color: #576574;
+    -webkit-box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
+            box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
+    color: white;
+    font-family: NunitoBold;
+  }
+  .login-btn:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    background-color: #576574;
+    -webkit-box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
+            box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
+    font-family: NunitoBold;
+    color: white;
   }
 }
 
@@ -313,6 +333,15 @@
 .fb-fakeImg {
   width: 40px;
   height: 45px;
+  -webkit-transition: ease-in-out 0.2s all;
+  transition: ease-in-out 0.2s all;
+}
+
+.fb-fakeImg:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
 }
 
 .fb span {
@@ -322,11 +351,20 @@
 .fb-google {
   width: 40px;
   height: 45px;
+  -webkit-transition: ease-in-out 0.2s all;
+  transition: ease-in-out 0.2s all;
 }
 
 .fb-google div {
   margin: 0;
   padding: 0;
+}
+
+.fb-google:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
 }
 
 .mapDiv {
@@ -436,6 +474,8 @@
 @media only screen and (min-width: 768px) {
   .map {
     width: 90%;
+    -webkit-box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
+            box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
   }
   .searchBox {
     top: 10px;
@@ -796,6 +836,7 @@
   }
   .table-select {
     margin-bottom: 20px;
+    margin-top: 50px;
   }
   .table__zip {
     margin: 20px 0;
@@ -809,6 +850,9 @@
 }
 
 @media only screen and (min-width: 1100px) {
+  .table-select {
+    margin-top: 150px;
+  }
   .table__zip-location {
     font-size: 25px;
   }
@@ -822,7 +866,6 @@ body {
   margin: 0;
   padding: 0;
   background-size: 300px;
-  height: 100vh;
   background-color: rgba(84, 160, 255, 0.1);
   font-family: NunitoRegular;
 }
@@ -863,7 +906,6 @@ body {
   body {
     background: url("../assets/background-images/undraw_by_my_car_ttge.svg") 30px 90% no-repeat, url("../assets/background-images/undraw_startman1_h7l9.svg") 95% 30% no-repeat;
     background-size: 300px, 200px;
-    height: 100vh;
     background-color: rgba(84, 160, 255, 0.1);
   }
 }
@@ -871,10 +913,105 @@ body {
 @media only screen and (min-width: 1100px) {
   html,
   body {
+    -webkit-animation: backgroundChanger 40s infinite normal;
+            animation: backgroundChanger 40s infinite normal;
+    height: 100%;
+  }
+}
+
+@-webkit-keyframes backgroundChanger {
+  0% {
     background: url("../assets/mockupimg.jpg") 0% 75px no-repeat;
-    background-size: 54% 95%;
+    background-size: 62% 95%;
     height: 100vh;
-    background-color: rgba(84, 160, 255, 0.1);
+  }
+  10% {
+    background: url("../assets/mockupimg.jpg") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  20% {
+    background: url("../assets/mockupimg2.png") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  40% {
+    background: url("../assets/mockupimg2.png") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  50% {
+    background: url("../assets/mockupimg3.jpg") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  70% {
+    background: url("../assets/mockupimg3.jpg") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  80% {
+    background: url("../assets/mockupimg4.png") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  90% {
+    background: url("../assets/mockupimg4.png") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  100% {
+    background: url("../assets/mockupimg.jpg") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+}
+
+@keyframes backgroundChanger {
+  0% {
+    background: url("../assets/mockupimg.jpg") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  10% {
+    background: url("../assets/mockupimg.jpg") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  20% {
+    background: url("../assets/mockupimg2.png") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  40% {
+    background: url("../assets/mockupimg2.png") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  50% {
+    background: url("../assets/mockupimg3.jpg") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  70% {
+    background: url("../assets/mockupimg3.jpg") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  80% {
+    background: url("../assets/mockupimg4.png") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  90% {
+    background: url("../assets/mockupimg4.png") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
+  }
+  100% {
+    background: url("../assets/mockupimg.jpg") 0% 75px no-repeat;
+    background-size: 62% 95%;
+    height: 100vh;
   }
 }
 /*# sourceMappingURL=main.css.map */

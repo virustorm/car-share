@@ -27,7 +27,15 @@ export default class BikePart extends Component {
 					{this.state.thisLoc.location}
 				</h1>
 				<div className="mobiPart">
-					<img className="mobiPart-pic" src={MobiSide} alt="mobi bike" />
+					{/* <img className="mobiPart-pic" src={MobiSide} alt="mobi bike" /> */}
+					<iframe
+						width="700"
+						height="415"
+						src="https://www.youtube.com/embed/n1oJ-wCMr9A"
+						frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+					/>
 				</div>
 				<div className="mobiPart-stall">
 					<h3>Bike In Stall : {this.state.thisLoc.bikeInStall}</h3>

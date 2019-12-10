@@ -22,7 +22,7 @@ function App() {
 				<Route path="/" exact component={MainBody} />
 				<Route path="/login" component={Login} />
 				<Route path="/register" component={Register} />
-				<Route path="/map" component={Cords} />
+				<Route path="/map" render={(props) => <Cords {...props} />} />
 				<Route path="/modo/:LocationID" component={ModoPart} />
 				<Route path="/zip/:ObjectID" render={(props) => <ZipPart {...props} />} />
 				<Route path="/mobi/:ID" render={(props) => <MobiPart {...props} />} />

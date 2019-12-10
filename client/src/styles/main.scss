@@ -14,7 +14,7 @@ body {
 	// background: url('../assets/background-images/undraw_Destination_6jtj.svg') 55% bottom no-repeat;
 
 	background-size: 300px;
-	height: 100vh;
+	// height: 100vh;
 	background-color: rgba(84, 160, 255, 0.1);
 	font-family: NunitoRegular;
 }
@@ -41,23 +41,75 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
 @include tablet {
 	html,
 	body {
 		background: url('../assets/background-images/undraw_by_my_car_ttge.svg') 30px 90% no-repeat,
 			url('../assets/background-images/undraw_startman1_h7l9.svg') 95% 30% no-repeat;
 		background-size: 300px, 200px;
-		height: 100vh;
+		// height: 100vh;
 		background-color: rgba(84, 160, 255, 0.1);
 	}
 }
 @include desktop {
 	html,
 	body {
-		background: url('../assets/mockupimg.jpg') 0% 75px no-repeat;
+		animation: backgroundChanger 40s infinite normal;
+		// background: url('../assets/mockupimg.jpg') 0% 75px no-repeat;
 
-		background-size: 54% 95%;
+		// background-size: 62% 95%;
+		height: 100%;
+		// background-color: rgba(84, 160, 255, 0.1);
+	}
+}
+@keyframes backgroundChanger {
+	0% {
+		background: url('../assets/mockupimg.jpg') 0% 75px no-repeat;
+		background-size: 62% 95%;
 		height: 100vh;
-		background-color: rgba(84, 160, 255, 0.1);
+	}
+	10% {
+		background: url('../assets/mockupimg.jpg') 0% 75px no-repeat;
+		background-size: 62% 95%;
+		height: 100vh;
+	}
+	20% {
+		background: url('../assets/mockupimg2.png') 0% 75px no-repeat;
+		background-size: 62% 95%;
+		height: 100vh;
+	}
+
+	40% {
+		background: url('../assets/mockupimg2.png') 0% 75px no-repeat;
+		background-size: 62% 95%;
+		height: 100vh;
+	}
+
+	50% {
+		background: url('../assets/mockupimg3.jpg') 0% 75px no-repeat;
+		background-size: 62% 95%;
+		height: 100vh;
+	}
+
+	70% {
+		background: url('../assets/mockupimg3.jpg') 0% 75px no-repeat;
+		background-size: 62% 95%;
+		height: 100vh;
+	}
+	80% {
+		background: url('../assets/mockupimg4.png') 0% 75px no-repeat;
+		background-size: 62% 95%;
+		height: 100vh;
+	}
+	90% {
+		background: url('../assets/mockupimg4.png') 0% 75px no-repeat;
+		background-size: 62% 95%;
+		height: 100vh;
+	}
+	100% {
+		background: url('../assets/mockupimg.jpg') 0% 75px no-repeat;
+		background-size: 62% 95%;
+		height: 100vh;
 	}
 }

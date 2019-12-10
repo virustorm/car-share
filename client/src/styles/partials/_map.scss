@@ -93,6 +93,7 @@
 @include tablet {
 	.map {
 		width: 90%;
+		box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.75);
 	}
 	.searchBox {
 		top: 10px;
